@@ -11,4 +11,4 @@ BLAS（基础线性代数子程序库）是含有大量线性代数运算的程�
 ### BLAS的使用
 关于BLAS的使用可以参见[BLAS wiki](https://en.wikipedia.org/wiki/Basic_Linear_Algebra_Subprograms)和[BLAS快速参考指南](http://www.netlib.org/blas/blasqr.pdf)。
 ### LAPACK的使用
-LAPACK的使用见[LAPACK Users' Guide](http://www.netlib.org/lapack/lug/)和[LAPACKE](http://www.netlib.org/lapack/lapacke.html)。
+LAPACK的使用见[LAPACK Users' Guide](http://www.netlib.org/lapack/lug/)和[LAPACKE](http://www.netlib.org/lapack/lapacke.html)以及[LAPACK Main Page](http://www.netlib.org/lapack/explore-html/index.html)。
