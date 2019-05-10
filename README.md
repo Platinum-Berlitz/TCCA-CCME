@@ -1,8 +1,5 @@
-# OFTCCA-CCME
-The Original Fire Theoretical and Computational Chemistry Association of CCME@PKU
-
-## 元火动漫社理论化学分部（大雾）
-~~~其实是因为并没有取好名字来着，过几次就会有个名字了~~~
+# TCCA-CCME
+TheTheoretical and Computational Chemistry Association of CCME@PKU
 
 ## TCCA是什么？
 Theoretical and Computational Chemistry Association, 是北京大学化学与分子工程学院2017~2018级的一群学生创建的一个类似讨论班的活动组织。
