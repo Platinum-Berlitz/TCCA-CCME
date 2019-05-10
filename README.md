@@ -1,5 +1,5 @@
 # TCCA-CCME
-TheTheoretical and Computational Chemistry Association of CCME@PKU
+The Theoretical and Computational Chemistry Association of CCME@PKU
 
 ## TCCA是什么？
 Theoretical and Computational Chemistry Association, 是北京大学化学与分子工程学院2017~2018级的一群学生创建的一个类似讨论班的活动组织。
