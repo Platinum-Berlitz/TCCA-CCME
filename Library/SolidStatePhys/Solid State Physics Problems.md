@@ -13,15 +13,15 @@
 | 07   |蘑菇|完成|HW07|
 | 08   |蘑菇|完成|HW08|
 | 09   |蘑菇|存疑|HW09|
-| 10   |      |存疑|HW10|
-| 11   |      |完成|PPT2|
-| 12   |      |完成|PPT2|
-| 13   |      |完成|PPT2|
-| 14   |      |完成|PPT2|
-| 15   |      |      |      |
-| 16   |      |      |      |
-| 17   |谭淞宸||
-| 18   |谭淞宸||
+| 10   |蘑菇|存疑|HW10|
+| 11   |昌珺涵|完成|本md|
+| 12   |昌珺涵|完成|本md|
+| 13   |昌珺涵|完成|本md|
+| 14   |昌珺涵|完成|本md|
+| 15   |昌珺涵|完成|本md|
+| 16   |昌珺涵|完成|本md|
+| 17   |||
+| 18   |||
 | 19   |谭淞宸|完成|本md|
 | 20   |谭淞宸|完成|本md|
 | 21   |谭淞宸|存疑|本md|
@@ -33,6 +33,418 @@
 | 27   |      |      |      |
 | 28   |      |      |      |
 | 29   |      |      |      |
+
+# 11
+
+> 1.计算满足色散 $\omega=c q^{2}$ 的声子在三维，二维，一维情形下的模式密度。
+
+模式密度
+
+$$ 
+g(\omega)=\frac{V}{(2 \pi)^{d}} \int \frac{\mathrm{d} S}{\left|\nabla_{q} \omega(q)\right|} ,\quad\text{其中} \quad \nabla_{q} \omega(q)=2 c q
+$$
+
+$$
+g(\omega)=
+\left\{
+\begin{aligned}
+    &\text{3D,}\quad\frac{V}{(2 \pi)^{3}} \frac{1}{2 c q} \int \mathrm{d} S =\frac{V}{(2 \pi)^{3}} \frac{1}{2 c q} 4 \pi q^{2} =\frac{V}{4 \pi^{2} c} \sqrt{\frac{\omega}{c}}=\frac{V}{4 \pi^{2} c^{3 / 2}} \omega^{1 / 2} \\
+    &\text{2D,}\quad\frac{S}{(2 \pi)^{2}} \frac{1}{2 c q} \int \mathrm{d} L=\frac{S}{(2 \pi)^{2}} \frac{1}{2 c q} 2 \pi q=\frac{S}{4 \pi c} \\
+    &\text{1D,}\quad\frac{L}{2 \pi} \frac{1}{2 c q}\times 2=\frac{L}{2 \pi c} \sqrt{\frac{c}{\omega}}=\frac{L}{2 \pi \sqrt{c}} \omega^{-1 / 2}
+\end{aligned}
+\right.
+$$
+
+> 2.1
+
+
+> 2.2
+
+
+> 3.解释黄昆书图3-33，合金的热导率的变化。
+
+晶体内部的杂质可以散射格波，使得声子平均自由程减小，从而起到降低热导的效果。
+
+> 4.为什么晶体的红外吸收峰很尖锐，而非晶很宽。
+
+晶体红外吸收需要同时满足能量守恒和准动量守恒，所以满足要求的点仅在 $q=0$ 附近非常窄的范围内，故晶体的红外吸收峰非常尖锐。由于非晶不具有平移对称性，故其与光子相互作用时，只需满足能量守恒，在很宽的频率范围内均能满足该要求，故其吸收峰很宽。
+
+# 12
+
+## 4
+
+> 证明拉普拉斯算符具有平移不变性。（附加：证明旋转不变性）
+
+$$
+\begin{pmatrix}
+    y_{1} \\ \vdots \\ y_{n}
+\end{pmatrix}
+=
+\begin{pmatrix}
+    R_{11} & \cdots & R_{1 n} \\
+    \vdots & \ddots & \vdots \\
+    R_{n 1} & \cdots & R_{n n}
+\end{pmatrix}
+\begin{pmatrix}
+    x_{1} \\ \vdots \\ x_{n}
+\end{pmatrix}
+$$
+
+$$
+\frac{\partial}{\partial x_{i}}=\sum_{j} \frac{\partial}{\partial y_{j}} \frac{\partial y_{j}}{\partial x_{i}}=\sum_j R_{j i} \frac{\partial}{\partial y_{j}}
+$$
+
+$$
+\frac{\partial^2}{\partial x_{i}^2}=\sum_{j,k} \frac{\partial^2}{\partial y_{j}\partial y_{k}} \frac{\partial y_{j}}{\partial x_{i}}\frac{\partial y_{k}}{\partial x_{i}}=\sum_{j,k} R_{j i} R_{k i} \frac{\partial^2}{\partial y_{j} \partial y_{k}}
+$$
+
+当 $\mathbf{R}$ 为旋转矩阵时，有 $\mathbf{R^T R=R R^T =I}$，即
+
+$$
+\sum_{j,k} R_{j i} (R^T)_{i k} = \sum_{j,k} R_{j i} R_{k i} = R_{j i}^2 \delta_{jk},\quad \frac{\partial^2}{\partial x_{i}^2}=\sum_{j} R_{ji}^2 \frac{\partial^2}{\partial y_{j}^2}
+$$
+
+$$ 
+\nabla_{x}^2 \boldsymbol{E}=\sum_{i} \frac{\partial^{2}}{\partial x_{i}^{2}} E_{i}=\sum_{i} \sum_{j} R_{j i}^{2} \frac{\partial^{2}}{\partial y_{j}^{2}} E_{i}=\nabla_{y}^2(\mathbf{R} \boldsymbol{E})
+ $$
+
+- - -
+以下 $V_n$ 表示周期场 $V(x)$ 的第 $n$ 个傅里叶系数：$k_n=2\pi n/a$
+
+$$
+\begin{aligned}
+V(x)=\bar{V}+\sum_{n \neq 0} V_{n} e^{i \frac{2 \pi}{a} n x}\\ V_{n}=\frac{1}{L} \int_{0}^{L} V(x) e^{-i \frac{2 \pi}{a} n x} \mathrm{d} x
+\end{aligned}
+$$
+- - -
+
+# 13
+
+## 1
+
+> 一维周期场近自由电子近似得到的解的周期部分为 $u_k(x)$。问 $u_k(x)^\star$ 与 $u_{-k}(x)$ 有何关系？
+
+一级近似下，
+
+$$
+\begin{aligned}
+    \psi_{k}(x)&=\psi_{k}^{(0)}(x)+\psi_{k}^{(1)}(x)\\
+    &=\psi_{k}^{(0)}(x)+\sum_{k^{\prime}\neq k} \frac{\langle k\vert \Delta V(x)\vert k^{\prime}\rangle}{E_{k}^{(0)}-E_{k^{\prime}}^{(0)}} \psi_{k^{\prime}}^{(0)}(x)\\
+    &=\frac{1}{\sqrt{L}} e^{i k x}+\sum_{n \neq 0} \frac{V_{-n}}{\frac{\hbar^{2}}{2 m}\left[k^{2}-\left(k-\frac{2 \pi}{a} n\right)^{2}\right]} \frac{1}{\sqrt{L}} e^{i\left(k-\frac{2 \pi n}{a}\right) x}\\
+    &=\frac{1}{\sqrt{L}} e^{i k x}\left[1+\sum_{n \neq 0} \frac{V_{-n} e^{-i \frac{2 \pi}{a} n x}}{\frac{\hbar^{2}}{2 m}\left[k^{2}-\left(k-\frac{2 \pi}{a} n\right)^{2}\right]}\right]=\frac{1}{\sqrt{L}} e^{i k x} u(x)\\
+    &=\frac{1}{\sqrt{L}} e^{i k x} u(x)
+\end{aligned}
+$$
+
+其中可证明 $H_{k^{\prime}, k}^{\prime}=\langle k^{\prime}\vert V(x)\vert k\rangle$ 的复共轭为其相反数：
+
+$$
+\begin{aligned}
+    H_{k^{\prime}, k}^{\prime} &=\int_{0}^{L} \psi_{k^{\prime}}^{(0) \star}(x) V(x) \psi_{k}^{(0)}(x) \mathrm{d} x \\
+    &=\int_{0}^{L} \frac{1}{L} e^{-i k^{\prime} x}\left(\sum_{n \neq 0} V_{n} e^{i \frac{2 \pi}{a} n x}\right) e^{i k x} \mathrm{d} x \\
+    &=\frac{1}{L}\sum_{n \neq 0} \int_{0}^{L} V_{n} e^{-i\left[k^{\prime}-\left(k+\frac{2 \pi}{a}n\right)\right] x} \mathrm{d} x \\
+    &=\sum_{n \neq 0} V_{n} \delta_{k^{\prime},\left(k+\frac{2 \pi}{a} n\right)}=V_{-n_0} \\
+    H_{k^{\prime}, k}^{\prime}&=
+    \int_{0}^{L} \frac{1}{L} e^{-i k^{\prime} x}\left(\sum_{n \neq 0} V_{n}^\star e^{-i \frac{2 \pi}{a} n x}\right) e^{i k x} \mathrm{d} x \\
+    &=\frac{1}{L}\sum_{n \neq 0} \int_{0}^{L} V_{n}^{\star} e^{-i\left[k^{\prime}-\left(k-\frac{2 \pi}{a}n\right)\right] x} \mathrm{d} x \\
+    &=\sum_{n \neq 0} V_{n}^{\star} \delta_{k^{\prime},\left(k-\frac{2 \pi}{a} n\right)}=V_{n_0}^{\star}\\
+    \Longrightarrow &\quad V_{n_0}^{\star}=V_{-n_0},\quad n_0=\frac{a}{2\pi}(k^\prime-k)
+\end{aligned}
+$$
+
+故 $u(x)$ 同样满足
+
+$$
+\begin{aligned}
+    u_k(x)&=1+\sum_{n \neq 0} \frac{V_{-n} e^{-i \frac{2 \pi}{a} n x}}{\frac{\hbar^{2}}{2 m}\left[k^{2}-\left(k-\frac{2 \pi}{a} n\right)^{2}\right]}\\
+    &=1+\sum_{-n \neq 0} \frac{V_{n} e^{i \frac{2 \pi}{a} n x}}{\frac{\hbar^{2}}{2 m}\left[k^{2}-\left(k+\frac{2 \pi}{a} n\right)^{2}\right]}\\
+    u_{-k}(x)&=1+\sum_{n \neq 0} \frac{V_{n} e^{i \frac{2 \pi}{a} n x}}{\frac{\hbar^{2}}{2 m}\left[k^{2}-\left(k-\frac{2 \pi}{a} n\right)^{2}\right]}\\
+    &=1+\sum_{n \neq 0} \frac{V_{-n}^{\star} e^{-i \frac{2 \pi}{a} (-n) x}}{\frac{\hbar^{2}}{2 m}\left[k^{2}-\left(k+\frac{2 \pi}{a} (-n)\right)^{2}\right]}\\
+    &=1+\sum_{-n \neq 0} \frac{V_{n}^{\star} e^{-i \frac{2 \pi}{a} n x}}{\frac{\hbar^{2}}{2 m}\left[k^{2}-\left(k+\frac{2 \pi}{a} n\right)^{2}\right]}\\
+    &=u_k(x)^{\star}
+\end{aligned}
+$$
+
+## 2
+
+> 一维周期场近自由电子近似下，简约布里渊右边的一个 $k$（不在边界附近），零级、一级和二级修正下的三个最低能量是多少？
+
+不在布里渊区边界附近，可采用非简并微扰。
+
+$$
+\begin{aligned}
+    E_k^{(0)}&=\frac{\hbar^2k^2}{2m}+\bar{V} \\
+    E_k^{(1)}&=H_{k, k}^{\prime}=\langle k\vert \Delta V(x)\vert k\rangle=0 \\
+    E_k^{(2)}&=\sum_{k^{\prime}\neq k} \frac{\langle k^{\prime}\vert \Delta V(x)\vert k\rangle}{E_k^{(0)}-E_{k^{\prime}}^{(0)}}\\
+    &=\sum_{n \neq 0} \frac{\left|V_{n}\right|^{2}}{\frac{\hbar^{2}}{2 m}\left[k^{2}-\left(k+\frac{2 \pi n}{a}\right)^{2}\right]}\\
+    E&=E_k^{(0)}+E_k^{(1)}+E_k^{(2)}\\
+    &=\frac{\hbar^2k^2}{2m}+\bar{V}+\sum_{n \neq 0} \frac{\left|V_{n}\right|^{2}}{\frac{\hbar^{2}}{2 m}\left[k^{2}-\left(k+\frac{2 \pi n}{a}\right)^{2}\right]}
+\end{aligned}
+$$
+
+# 14
+
+## 1
+
+> 一维周期场近自由电子近似下，简约布里渊右边的一个 $k$（不在边界附近），求三条最低能带，在零级和一级修正下的波函数是多少？
+
+$$
+\psi_{k}^{(0)}(x)=\frac{1}{\sqrt{L}} e^{i k x}
+$$
+
+$$ 
+\psi_{k}^{(0)}(x)+\psi_{k}^{(1)}(x)=\frac{1}{\sqrt{L}} e^{i k x}\left\{1+\sum_{n \neq 0}\frac{V_n}{\frac{h^{2}}{2 m}\left[k^{2}-\left(k+\frac{2 \pi}{a} n\right)^{2}\right]} e^{-i \frac{2 \pi n}{a} x}\right\}
+$$
+
+代入 $k=k,k\pm 2\pi/a$ 得三个能带波函数。
+
+## 2
+
+> Be 具有 hcp 结构。按照近自由电子近似，它的4个电子会占据几个布里渊区？会全部占满么？为什么？
+
+$N$ 个 Be 原胞有 $4N$ 个价电子，一个布里渊区可以容纳 $2N$ 个电子，因此可以占据 2 个布里渊区，但由于 Be 的碱土金属特性，其能带会发生交叠，故不会占满整个布里渊区。
+
+## 3
+
+> 一维单原子链的晶格常数是 $a$, 周期势场为 $V(x)=2V_1 \cos(2πx/a)$。现用平面波展开求其电子波函数 $\psi_k(x)$, 写出试探波函数的前 5 项($G=0, 2π/a, -2π/a, 4π/a, -4π/a$)和求其本征方程的久期行列式的前 5×5 项。如果试探波函数只取两项，即 $\psi_{k}(x)=a e^{i k x}+b e^{i(k+2 \pi / a) x}$，求此时能量的本征值。在第一布里渊区画出该一维晶体的能带。
+
+平面波展开的波函数为
+
+$$
+\left\{
+\begin{aligned}
+    3D,& \quad\psi_{\boldsymbol{k}}(\boldsymbol{r})=\frac{1}{\sqrt{V}} \sum_{\boldsymbol{G_{n}}} a_{\boldsymbol{k}}(\boldsymbol{G}_{n}) e^{i(\boldsymbol{k+G_n}) \boldsymbol{r}}\\
+    1D,& \quad\psi_{k}(x)=\frac{1}{\sqrt{L}} \sum_{G_{n}} a_{k}(G_{n}) e^{i(k+G_n) x}
+\end{aligned}
+\right.
+$$
+
+$$
+\psi_{k}(x)=\frac{1}{\sqrt{L}} e^{i k x}\left[a_{k}(0)+a_{k}\left(\frac{2 \pi}{a}\right) e^{i \frac{2 \pi}{a} x}+a_{k}\left(-\frac{2 \pi}{a}\right) e^{-i \frac{2 \pi}{a} x}+a_{k}\left(\frac{4 \pi}{a}\right) e^{i \frac{4 \pi}{a} x}+a_{k}\left(-\frac{4 \pi}{a}\right) e^{-i \frac{4 \pi}{a} x}\right]
+$$
+
+代入薛定谔方程
+
+$$
+\left[-\frac{\hbar^{2}}{2 m} \nabla^{2}+V(x)\right] \psi_k(x)=E \psi_k(x)
+$$
+
+$$
+\frac{1}{\sqrt{L}} \sum_{m}\left[\frac{\hbar^{2}}{2 m} (k+G_{m})^{2}-E+V(x)\right] a(G_{m}) e^{i(k+G_{m}) x}=0
+$$
+
+两侧同乘以 $L^{-1/2} \exp[-i(k+G_{n})x]$ 得
+
+$$
+\frac{1}{L} \sum_{m}\left[\frac{\hbar^{2}}{2 m} (k+G_{m})^{2}-E+V(x)\right] a(G_{m}) e^{i(G_{m}-G_n) x}=0
+$$
+
+对整个晶体积分，
+
+$$
+\begin{aligned}
+    &\sum_m \left\{\int_L \frac{1}{L} \left[\frac{\hbar^{2}}{2 m} (k+G_{m})^{2}-E \right] a(G_{m}) e^{i(G_{m}-G_n) x} \mathrm{d}x+ a(G_{m}) \int_L \frac{1}{L} V(x) e^{i (G_{m}-G_n) x}\mathrm{d}x\right\} \\
+    =&\sum_m \left[\frac{\hbar^{2}}{2 m} (k+G_{m})^{2}-E \right] a(G_{m}) \delta_{mn} +\sum_m a(G_{m}) \tilde{V}(G_{n}-G_{m})=0
+\end{aligned}
+
+$$
+
+久期行列式为
+
+$$
+\det\left|\frac{\hbar^{2}}{2 m}(k+G_{m})^{2} \delta_{m n}+\tilde{V}(G_{m}-G_{n})-E_k \delta_{m n}\right|=0
+$$
+
+其中
+
+$$
+\tilde{V}(G_{m}-G_{n})=V_{m-n}= \int e^{-i\left(G_{m}-G_{n}\right) x} V(x) \mathrm{d} x=\frac{2 V_{1}}{a} \int e^{-i\left(G_{m}-G_{n}\right) x} \cos \frac{2 \pi x}{a} \mathrm{d} x
+$$
+
+前5项（9项）中，
+
+$$
+\begin{aligned}
+V(0)&=\frac{2 V_{1}}{a} \int_{0}^{a} \cos \frac{2 \pi x}{a} d x=0 \\
+V\left(\frac{2 \pi}{a}\right)&=\frac{2 V_{1}}{a} \int_{0}^{a} e^{-i \frac{2 \pi}{a} x} \cos \frac{2 \pi x}{a} d x=V\left(-\frac{2 \pi}{a}\right)=V_{1} \\
+V\left(\frac{4 \pi}{a}\right)&=\frac{2 V_{1}}{a} \int_{0}^{a} e^{-i \frac{2 \pi}{a} x} \cos \frac{4 \pi x}{a} d x=V\left(-\frac{4 \pi}{a}\right)=0 \\
+V\left(\frac{6 \pi}{a}\right)&=V\left(-\frac{6 \pi}{a}\right)=V\left(\frac{8 \pi}{a}\right)=V\left(-\frac{8 \pi}{a}\right)=0
+\end{aligned}
+$$
+
+若试探波函数只取前 2 项，久期行列式为
+
+$$
+\begin{vmatrix}\dfrac{\hbar^{2}}{2 m} k^{2}-E_{k} & {V_{1}} \\ {V_{1}} & {\dfrac{\hbar^{2}}{2 m}(k+\dfrac{2\pi}{a})^{2}-E_{k}}
+\end{vmatrix}=0
+$$
+
+解得
+
+$$ 
+E_{ \pm}=\frac{h^{2}}{4 m}\left[k^{2}+\left(k+\frac{2 \pi}{a}\right)^{2}\right] \pm \sqrt{\frac{\pi^{2} h^{4}}{a^{2} m^{2}}\left(k+\frac{\pi}{a}\right)^{2}+V_{1}^{2}}
+$$
+
+## 4
+
+> 用平面波展开求解三维晶体能带，跃迁矩阵元为 $H_{mn}$，进一步化简 $V_{\boldsymbol{G_m-G_n}}$.
+
+解法与上题一维情形相同。
+
+$$
+\begin{aligned}
+    V_{\boldsymbol{G_m-G_n}} &= \int e^{-i(\boldsymbol{G_m-G_n}) \boldsymbol{r}} V(\boldsymbol{r}) \mathrm{d} \boldsymbol{r} \\
+    &=\frac{1}{N V_{0}} \sum_{m=0}^{N-1} \int e^{-i(\boldsymbol{G_m-G_n}) \boldsymbol{r}} V(\boldsymbol{r}) V(\boldsymbol{r}) \mathrm{d} \boldsymbol{r} \\
+    & =\frac{1}{V} \sum_{p_{1}=0}^{N_{1}-1} \sum_{p_{2}=0}^{-1} \sum_{p_{3}=0}^{-1} \int e^{-i(\boldsymbol{G_m-G_n}) (\boldsymbol{r+R_p})} V(\boldsymbol{r}) \mathrm{d} \boldsymbol{r}
+\end{aligned}
+
+$$
+
+# 15
+
+## 1
+
+> 原子轨道线性组合（布洛赫和的线性组合）求晶体的波函数，在只考虑一个布洛赫和的情况下，证明从久期行列式 $\det|H_{mn} – ES_{mn}|=0$ 导出的能带色散与书上用简并微扰导出的能带色散是完全一致的。
+
+简并微扰是将哈密顿矩阵对角化，求解 $\det|H_{mn} – E\delta_{mn}|=0$，这在紧束缚近似 $S_{mn}=\delta_{mn}$ 时与久期行列式 $\det|H_{mn} – ES_{mn}|=0$ 等价。
+
+试探波函数 $\psi(\boldsymbol{r})=\sum_m a_m \varphi_i(\boldsymbol{r-R_m})$.
+
+$$
+E=\frac{\langle\psi(\boldsymbol{r}) \vert \hat{H} \vert \psi(\boldsymbol{r}) \rangle}{\langle\psi(\boldsymbol{r}) \vert \psi(\boldsymbol{r}) \rangle}=\frac{\sum_m \sum_n a_m a_n H_{mn}}{\sum_m \sum_n a_m a_n S_{mn}}=\frac{Y}{Z}
+$$
+
+$$
+\begin{aligned}
+    \frac{\partial E}{\partial a_n}&=\frac{1}{Z}\left( \frac{\partial Y}{\partial a_n} - E\frac{\partial Z}{\partial a_n} \right) \\
+    &=\frac{1}{Z}\left( 2\sum_m a_m H_{mn} - 2E\sum_m a_m S_{mn} \right) \\
+    &=0 \\
+    \Longrightarrow & \det|H_{mn} – ES_{mn}|=0
+\end{aligned}
+$$
+
+孤立原子的薛定谔方程为
+
+$$
+\left[ -\frac{\hbar^2}{2m}\nabla^2 + V(\boldsymbol{r-R_m}) \right] \varphi_i(\boldsymbol{r-R_m})= \varepsilon_i \varphi_i(\boldsymbol{r-R_m})
+$$
+
+晶体的薛定谔方程为
+
+$$
+\left[ -\frac{\hbar^2}{2m}\nabla^2 + U(\boldsymbol{r}) \right] \psi(\boldsymbol{r})= E \psi(\boldsymbol{r})
+$$
+
+记 $\boldsymbol{\xi=r-R_m}$，晶体与孤立原子的矩阵元之差
+
+$$
+-J(\boldsymbol{R_n-R_m})=\int \mathrm{d} \boldsymbol{\xi} \varphi_i^{\star}(\boldsymbol{\xi}-(\boldsymbol{R_n-R_m}))[U(\boldsymbol{\xi})-V(\boldsymbol{\xi})]\varphi_i(\boldsymbol{\xi})
+$$
+
+哈密顿量的矩阵元
+
+$$
+\begin{aligned}
+    H_{mn}&=\int \mathrm{d} \boldsymbol{\xi} \varphi_i^{\star}(\boldsymbol{\xi}-(\boldsymbol{R_n-R_m}))\left[-\frac{\hbar^2}{2m}\nabla^2 + U(\boldsymbol{\xi})\right]\varphi_i(\boldsymbol{\xi}) \\
+    &=\int \mathrm{d} \boldsymbol{\xi} \varphi_i^{\star}(\boldsymbol{\xi}-(\boldsymbol{R_n-R_m}))[U(\boldsymbol{\xi})-V(\boldsymbol{\xi})+\varepsilon_i]\varphi_i(\boldsymbol{\xi}) \\
+    &=\varepsilon_i\cdot S_{mn} - J(\boldsymbol{R_n-R_m})
+\end{aligned}
+$$
+
+重叠矩阵元
+
+$$
+S_{mn}=\int \mathrm{d} \boldsymbol{\xi} \varphi_i^{\star}(\boldsymbol{\xi}-(\boldsymbol{R_n-R_m})) \varphi_i(\boldsymbol{\xi}) \approx 0
+$$
+
+久期行列式 $\det|H_{mn} – ES_{mn}|=0$ 的解同样为
+
+$$
+E(\boldsymbol{k})=\varepsilon_i - \sum_{\boldsymbol{R_n}}J(\boldsymbol{R_n-R_m})e^{-i\boldsymbol{k}\cdot(\boldsymbol{R_n-R_m})}
+$$
+
+各系数同样为
+
+$$
+a_m=\frac{1}{\sqrt{N}} e^{i\boldsymbol{k}\cdot\boldsymbol{R_m}}
+$$
+
+## 2
+
+> 问 $A \frac{1}{\sqrt{N}} \sum_{m} e^{i \boldsymbol{k} \cdot \boldsymbol{R_{m}}} \varphi_{i}\left(\boldsymbol{r}-\boldsymbol{R}_{m}\right)+B e^{i \boldsymbol{k} \cdot \boldsymbol{r}}$ 是否满足布洛赫定理。$A,B$ 为常数。即布洛赫和与平面波的组合是否满足布洛赫定理？
+
+$$
+\begin{aligned}
+    \psi(\boldsymbol{r})&=A \frac{1}{\sqrt{N}} \sum_{m} e^{i \boldsymbol{k} \cdot \boldsymbol{R_{m}}} \varphi_{i}\left(\boldsymbol{r}-\boldsymbol{R}_{m}\right)+B e^{i \boldsymbol{k} \cdot \boldsymbol{r}}\\
+    &=e^{i\boldsymbol{k\cdot r}}\left[ A \frac{1}{\sqrt{N}} \sum_{m} e^{-i \boldsymbol{k} \cdot (\boldsymbol{r-R_{m}})} \varphi_{i}\left(\boldsymbol{r}-\boldsymbol{R}_{m}\right)+B \right]
+\end{aligned}
+$$
+
+记 $\boldsymbol{R_s=R_m-R_n}$，由于求和遍及所有原子，求和所得相等：
+
+$$
+\begin{aligned}
+    \psi(\boldsymbol{r+R_n})&=A \frac{1}{\sqrt{N}} \sum_{m} e^{i \boldsymbol{k} \cdot \boldsymbol{R_{m}}} \varphi_{i}\left(\boldsymbol{r}-\boldsymbol{R}_{s}\right)+B e^{i \boldsymbol{k} \cdot \boldsymbol{r}}\\
+    &=e^{i\boldsymbol{k\cdot R_n}} e^{i\boldsymbol{k\cdot r}} \left[ A \frac{1}{\sqrt{N}} \sum_{m} e^{-i \boldsymbol{k} \cdot (\boldsymbol{r-R_{s}})} \varphi_{i}\left(\boldsymbol{r}-\boldsymbol{R}_{s}\right)+B \right]\\
+    &=e^{i\boldsymbol{k\cdot R_n}}\psi(\boldsymbol{r})
+\end{aligned}
+$$
+
+可见将波矢选取为 $\boldsymbol{k^{\prime}=k}$，即有 $\psi(\boldsymbol{r+R_n})=e^{i\boldsymbol{k^{\prime}\cdot R_n}}\psi(\boldsymbol{r})$，满足布洛赫定理。
+
+# 16
+
+## 1
+
+> 用紧束缚近似求出面心立方晶格和体心立方晶格 s 态原子能级相对应的能带函数。
+
+## 2
+
+> 黄书4.7(1), 4.12
+
+## 3
+
+> 紧束缚近似下，晶格常数为 $a$ 的简单立方晶格 s 轨道形成能带，写出在 $\boldsymbol{k}=(0,\pi/a,\pi/a)$ 和 $\boldsymbol{k}=(\pi/a,\pi/a,\pi/a)$ 点的波函数。
+
+$$
+\psi_{\boldsymbol{k},\mathrm{s}}(\boldsymbol{r})=\frac{1}{\sqrt{N}}\sum_m e^{i\boldsymbol{k}\cdot\boldsymbol{R_m}} \varphi_\mathrm{s}(\boldsymbol{r-R_m})
+$$
+
+$\boldsymbol{k}=(0,\pi/a,\pi/a)$ 时，$e^{ik_x R_{m,x}}=1,\quad e^{ik_y R_{m,y}}=(-1)^{R_{m,y}/a},\quad e^{ik_z R_{m,z}}=(-1)^{R_{m,z}/a}$.
+
+$$
+\psi_{\boldsymbol{k},\mathrm{s}}(\boldsymbol{r})=\frac{1}{\sqrt{N}}\sum_m (-1)^{(R_{m,y}+R_{m,z})/a} \varphi_\mathrm{s}(\boldsymbol{r-R_m})
+$$
+
+$\boldsymbol{k}=(\pi/a,\pi/a,\pi/a)$ 时，
+
+$$
+\psi_{\boldsymbol{k},\mathrm{s}}(\boldsymbol{r})=\frac{1}{\sqrt{N}}\sum_m (-1)^{(R_{m,x}+R_{m,y}+R_{m,z})/a} \varphi_\mathrm{s}(\boldsymbol{r-R_m})
+$$
+
+## 4（此题存疑，以下答案被批错说写反了）
+
+> 紧束缚近似下，晶格常数为 $a$ 的简单立方晶格，p 轨道形成能带。对 p<sub>z</sub> 轨道形成的能带，沿着 $(0,0,k_z)$ 方向的色散，写出 $k_z=0,\pi/a$ 时候的波函数。从波函数角度（看波函数的重叠情况）分析 $k_z=0$ 和 $\pi/a$ 哪个态对应成键态，哪个态对应反键态？
+
+$$
+\psi_{\boldsymbol{k},\mathrm{p_z}}(\boldsymbol{r})=\frac{1}{\sqrt{N}}\sum_m e^{i\boldsymbol{k}\cdot\boldsymbol{R_m}} \varphi_\mathrm{p_z}(\boldsymbol{r-R_m})
+$$
+
+$k_z=0$ 时，z 方向相邻原子 p 轨道符号相同，重叠积分为负，对应反键态。
+
+$$
+\psi_{\boldsymbol{k},\mathrm{p_z}}(\boldsymbol{r})=\frac{1}{\sqrt{N}}\sum_m e^{i(k_x R_{m,x}+k_y R_{m,y})} \varphi_\mathrm{p_z}(\boldsymbol{r-R_m})
+$$
+
+$k_z=\pi/a$ 时，z 方向相邻原子 p 轨道符号相反，重叠积分为正，对应成键态。
+
+$$
+\psi_{\boldsymbol{k},\mathrm{p_z}}(\boldsymbol{r})=\frac{1}{\sqrt{N}}\sum_m e^{i(k_x R_{m,x}+k_y R_{m,y})} \cdot (-1)^{R_{m,z}/a}\varphi_\mathrm{p_z}(\boldsymbol{r-R_m})
+$$
+
+## 5
+
+> 写出求碳金刚石结构的 2s,2p 价电子形成的能带的试探波函数，赝的薛定谔方程，以及久期行列式。
 
 # 19
 
