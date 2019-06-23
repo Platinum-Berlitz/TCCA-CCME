@@ -5,6 +5,8 @@ author:
 - 谭淞宸\quad 整理
 date: \today
 documentclass: ctexrep
+header-includes: |
+  \usepackage{booktabs}
 ---
 
 [^_^]: 编译命令：pandoc meta.md 1.md 2.md 3.md 4.md 5.md final.md --pdf-engine xelatex -N -o 量子化学讲义.pdf
