@@ -24,7 +24,8 @@ program boltzmann
     ! write results
     distri = distri / q
     open (21, file='2_3.dat')
-    write (21, *) q
+    write (21, *) 'Approximate q: ', temp
+    write (21, *) 'Calculated q: ', q
     do i = 0, (n-1)
         write (21, '(i8,f20.10)') i, distri(i)
     end do
