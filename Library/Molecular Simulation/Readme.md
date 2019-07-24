@@ -1,8 +1,8 @@
-这里存放了 *Understanding Molecular Simulation: From Algorithms to Applications* 这本书的前 13 个程序设计练习。由于源文件是使用 Fixed Format 的 Fortran 77 格式，在这里先将其改为 Fortran 90 格式再进行相应模块编写。阅读说明：
+这里存放了 *Understanding Molecular Simulation: From Algorithms to Applications* 这本书的全部 16 个程序设计练习。由于源文件是使用 Fixed Format 的 Fortran 77 格式，在这里先将其转为 Fortran 90 格式再进行相应模块编写。阅读说明：
 
-1. 设题号为 `n`，题目中如果有未完成的代码，则用 `n_0.f90` 命名，已完成的代码用 `n.f90` 命名，输出文件用 `n.dat` 命名。
-2. 如果题目中有不止一个需要运行的程序，则用 `n_i.f90` 命名，`i` 是序号数，相应的输出文件用 `n_i.dat` 命名。
-3. 如果题目中有作图题，这里使用 Python 的 `matplotlib` 库进行作图，处理 `n_i.dat` 作图的程序命名为 `n_i.py`。
+1. 设题号为 `<n>`，题目中如果有未完成的代码，则用 `<n>_0.f90` 命名，已完成的代码用 `<n>.f90` 命名，输出文件用 `<n>.dat` 命名。
+2. 如果题目中有不止一个需要运行的程序，则用 `<n>_<i>.f90` 命名，`<i>` 是序号数，相应的输出文件用 `<n>_<i>.dat` 命名。
+3. 如果题目中有作图题，这里使用 Python 的 `matplotlib` 库进行作图，处理 `<n>_<i>.dat` 作图的程序命名为 `<n>_<i>.py`，生成的图片命名为 `<n>_<i>.png`。
 
 完成情况：
 
@@ -25,7 +25,7 @@
 | 15   | 未完成 |
 | 16   | 未完成 |
 
-# Exercise 1
+# Exercise 1（Distribution of Particles, Chpt 02）
 
 ## 2
 
@@ -69,7 +69,7 @@ $$
 $$
 这样我们就证明了它是 Gaussian 的。
 
-# Exercise 2
+# Exercise 2（Boltzmann Distribution, Chpt 2）
 
 ## 1
 
@@ -83,7 +83,7 @@ $$
 
 输入温度使近似公式中 $q=10$，计算出 $q=10.34$。
 
-# Exercise 3
+# Exercise 3（Coupled Harmonic Oscillators, Chpt 2）
 
 ## 1
 
@@ -107,9 +107,9 @@ $$
 
 联系是显然的。系统（一个谐振子）能量越高，环境（NVE 系综中其他谐振子）能量越低，环境简并度越低，因此处于这样的状态概率越小。这与通过微正则系综推导正则系综的过程完全一致。
 
-# Exercise 4
+# Exercise 4（Random Walk on a 1D Lattice, Chpt 2）
 
-这个程序的写法也太 T N D 反人类了！
+这个程序的写法也太反人类了！
 
 ## 1
 
@@ -138,7 +138,7 @@ $$
 
 ![](4/4_2.png)
 
-# Exercise 5
+# Exercise 5（Random Walk on a 2D Lattice, Chpt 2）
 
 ## 1
 
@@ -160,7 +160,7 @@ $$
 
 迁移率只跟绝对位移有关系所以好像没影响？？？
 
-# Exercise 6
+# Exercise 6（Calculation of $\pi$, Chpt 3）
 
 ## 1
 
@@ -185,7 +185,7 @@ $$
 
 废话……
 
-# Exercise 7
+# Exercise 7（The Photon Gas, Chpt 3）
 
 ## 1
 
@@ -210,11 +210,75 @@ $$
 
 统计前 100 能级的频数，并按 0 能级的归一化。与解析结果符合很好（精确到小数点后 3 位）。
 
-# Exercise 8
+# Exercise 8（Monte Carlo Simulation of a Lennard-Jones System）
 
-# Exercise 9
+## 1
 
-scaling 时的疏密度有差异（大 → 小是有利的，有利程度即是比值），如果交换，则会在 0 处集中
+$$
+\mathrm{vir}=\sum_{i<j}\left(\frac{48}{r_{ij}^{12}}-\frac{24}{r_{ij}^6}\right)
+$$
+
+## 2
+
+![](8/8_1.png)
+
+
+
+## 3
+
+懒得整
+
+## 4
+
+$$
+C_V=\beta^2(\langle E^2\rangle-\langle E\rangle^2)
+$$
+
+## 5
+
+假设 $\Delta U$ 关于位移是线性的， 那么要求
+$$
+e^{-\beta \langle\Delta U\rangle}=\frac12
+$$
+N 粒子同时移动，$\Delta U=\ln 2/N\beta$。
+
+## 6
+
+不能。均方位移只与温度有关，而与位移分布的具体形式有关。（Gaussian 分布的接受度会比较大，但这些接受的都是比较小的位移。）
+
+# Exercise 9（Scaling as a Monte Carlo Move, Chpt 3）
+
+## 1
+
+由于 Boltzmann 因子在 $[0,1]$ 之间是常数，这要求当 $0<x_1<x_2<1$ 时：
+$$
+\alpha(x_1\to x_2)\mathrm{acc}(x_1\to x_2)=\alpha(x_2\to x_1)\mathrm{acc}(x_2\to x_1)
+$$
+
+### 位移
+
+不妨设 $|x_1-x_2|<\delta$。此时 $\alpha(x_1\to x_2)=\alpha(x_2\to x_1)=1/2\delta$ （用概率密度衡量）。因此 $\mathrm{acc}$ 可以均取为 1。
+
+### 标度
+
+不妨设 $x_2<(1+\delta)x_1,x_1>x_2/(1+\delta)$。此时，
+$$
+\alpha(x_1\to x_2)=\lim_{\Delta x\to 0}\frac{1}{\Delta x}\left[\frac{x_2+\Delta x}{x_1}-\frac{x_2}{x_1}\right]=\frac1{x_1}
+$$
+
+$$
+\alpha(x_2\to x_1)=\lim_{\Delta x\to 0}\frac1{\Delta x}\left[\frac{x_2}{x_1-\Delta x}-\frac{x_2}{x_1}\right]=\frac{x_2}{x_1^2}
+$$
+
+可见概率密度是不等的。所以应设 $\mathrm{acc}(x_1\to x_2)=x_2/x_1$。
+
+## 2
+
+见 `9.dat`，对两种移动方式都成功生成了 $[0,1]$ 上的均匀分布。
+
+## 3
+
+由于 $\alpha(x_2\to x_1)$ 更大些，会向 0 的邻域集中。
 
 # Exercise 10（Molecular Dynamics of a Lennard-Jones System, Chpt 4）
 
