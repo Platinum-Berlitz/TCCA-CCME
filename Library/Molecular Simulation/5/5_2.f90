@@ -1,18 +1,16 @@
-! gfortran 5_1.f90 -o 5_1 && ./5_1
+! gfortran 5_2.f90 -o 5_2 && ./5_2
 program random2d
 	implicit none
 
 	! random walk 2d
 	integer :: i, j, k, l, t
-	integer, parameter :: njump = 100000, ninit = njump / 4, M = 32, Ns(10) = (/(10*i, i=1, 10)/), tmax = 100
+	integer, parameter :: njump = 100000, ninit = njump / 4, M = 32, N = 10, tmax = 100
 	integer :: lattice(M,M) = 0
 	integer, allocatable :: part(:,:), part_(:,:), trace(:,:,:)
-	integer :: N, accepted, dt, r2(tmax, 2), nr2(tmax), r(2), dr(2)
+	integer :: accepted, dt, r2(tmax, 2), nr2(tmax), r(2), dr(2)
 	real :: r1
 
-	open (21, file = '5_1.dat')
-	do l = 1, 10
-		N = Ns(l)
+	open (21, file = '5_2.dat')
 		accepted = 0
 		lattice = 0
 		r2 = 0
@@ -40,6 +38,8 @@ program random2d
 		j = 1 + int(r1 * N)
 		if (j > N) print *, 'Warning'
 		call random_number(r1)
+		! modify so that moving downward is most likely
+		r1 = r1 * 1.5
 		if (r1 < 2.5d-1) then
 			dr = (/1, 0/)
 		else if (r1 < 5d-1) then
@@ -94,7 +94,6 @@ program random2d
 		end if
 	end do
 	deallocate(part, part_, trace)
-	end do
 	close (21)
 	stop
 end program random2d

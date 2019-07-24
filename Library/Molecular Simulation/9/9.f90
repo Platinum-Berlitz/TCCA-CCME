@@ -1,5 +1,5 @@
 ! gfortran 9.f90 -o 9 && ./9
-! scaling 时的疏密度有差异（大 → 小是有利的，有利程度即是比值），如果交换，则会在 0 处集中
+
 program scaling
 	implicit none
 	real*8 dist(100), dis, c, xold, xnew, av1, av2, maxdpl, r1

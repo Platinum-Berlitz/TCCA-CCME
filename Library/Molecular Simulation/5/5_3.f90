@@ -1,18 +1,16 @@
-! gfortran 5_1.f90 -o 5_1 && ./5_1
+! gfortran 5_3.f90 -o 5_3 && ./5_3
 program random2d
 	implicit none
 
 	! random walk 2d
 	integer :: i, j, k, l, t
-	integer, parameter :: njump = 100000, ninit = njump / 4, M = 32, Ns(10) = (/(10*i, i=1, 10)/), tmax = 100
+	integer, parameter :: njump = 100000, ninit = njump / 4, M = 32, N = 10, tmax = 100
 	integer :: lattice(M,M) = 0
 	integer, allocatable :: part(:,:), part_(:,:), trace(:,:,:)
-	integer :: N, accepted, dt, r2(tmax, 2), nr2(tmax), r(2), dr(2)
+	integer :: accepted, dt, r2(tmax, 2), nr2(tmax), r(2), dr(2)
 	real :: r1
 
-	open (21, file = '5_1.dat')
-	do l = 1, 10
-		N = Ns(l)
+	open (21, file = '5_3.dat')
 		accepted = 0
 		lattice = 0
 		r2 = 0
@@ -53,9 +51,15 @@ program random2d
 		! new position
 		! put particle back on the lattice
 		r = part(j,:) + dr
-		do k = 1, 2
+		!!!!!!!!!!!!!!!!!!!!!
+		! modify so that 'y' direction uses reflecting
+		do k = 1, 1
 			if (r(k) < 1) r(k) = r(k) + M
 			if (r(k) > M) r(k) = r(k) - M
+		end do
+		do k = 2, 2
+			if (r(k) == 0) r(k) = 2
+			if (r(k) == M+1) r(k) = M-1
 		end do
 		! r = r - M * int(real(r - 1) / M)
 		if (lattice(r(1), r(2)) == 0) then
@@ -94,7 +98,6 @@ program random2d
 		end if
 	end do
 	deallocate(part, part_, trace)
-	end do
 	close (21)
 	stop
 end program random2d

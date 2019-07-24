@@ -4,6 +4,27 @@
 2. 如果题目中有不止一个需要运行的程序，则用 `n_i.f90` 命名，`i` 是序号数，相应的输出文件用 `n_i.dat` 命名。
 3. 如果题目中有作图题，这里使用 Python 的 `matplotlib` 库进行作图，处理 `n_i.dat` 作图的程序命名为 `n_i.py`。
 
+完成情况：
+
+| 题号 | 情况   |
+| ---- | ------ |
+| 1    | 完成   |
+| 2    | 完成   |
+| 3    | 完成   |
+| 4    | 完成   |
+| 5    | 存疑   |
+| 6    | 完成   |
+| 7    | 完成   |
+| 8    | 未完成 |
+| 9    | 存疑   |
+| 10   | 未完成 |
+| 11   | 未完成 |
+| 12   | 未完成 |
+| 13   | 未完成 |
+| 14   | 未完成 |
+| 15   | 未完成 |
+| 16   | 未完成 |
+
 # Exercise 1
 
 ## 2
@@ -125,3 +146,86 @@ $$
 
 ## 2
 
+![](5/5_1.png)
+
+橙线是 $0.25(1-\theta)$，蓝线是实验结果。
+
+在浓度低时，移动的接受率正比于空位的数量，所以呈线性关系。
+
+## 3
+
+见 `5_2.dat`，例如增加向下移动的概率而均匀减小其他三个的概率，则 $x$ 方向的迁移率减小，$y$ 方向增大。
+
+## 4
+
+迁移率只跟绝对位移有关系所以好像没影响？？？
+
+# Exercise 6
+
+## 1
+
+不失一般地，我们认为 $d=2$，则在 $l\times l$ 的正方形中投点，如果满足 $x^2+y^2<1$ 就计数。
+
+## 3
+
+$\pi$ 的估计值 $\pi^*$ 由下式给出：
+$$
+\pi^*=\frac{l^2}{N}\sum_i\mathbb I(x_i^2+y_i^2<1)
+$$
+其中 $\mathbb I$ 是指示函数，这个指示函数的期望是 $\pi/l^2$。因此方差为
+$$
+\begin{aligned}
+\sigma^2&=\left(\frac{l^2}{N}\right)^2\sum_i\left\langle \left(\mathbb I(x_i^2+y_i^2<1)-\frac{\pi}{l^2}\right)^2\right\rangle\\
+&=\frac{\pi(l^2-\pi)}{N}
+\end{aligned}
+$$
+所以应该让边长比较小。
+
+## 4
+
+废话……
+
+# Exercise 7
+
+## 1
+
+是符合的。$0\to 1$ 的概率是 $0.5\times e^{-\beta}$，而 $1\to 0$ 的概率是 $0.5$。
+
+## 2
+
+1. 是正确的。假设 $i<j$，那么 $i\to j$ 的概率是 $0.909\times e^{-\beta(j-i)}$，$j\to i$ 的概率是 $0.909$。
+2. 不正确。只能生成那些模 3 同余的态。
+
+## 3
+
+见 `7_1.f90`，与理论结果符合很好。
+
+## 4
+
+在 `7_1.f90` 给出的结果大约有 0.01 的误差的情况下，`7_2.f90` 的误差在 0.5 左右。显然这种做法违反了细致平衡原理。
+
+特别是 $\beta \gg 1$ 时，可以证明 `7_2.f90` 给出的能量将精确地为 0.5，而实际能量 $\to 0$，所以此时（相对）误差最大。
+
+## 5
+
+统计前 100 能级的频数，并按 0 能级的归一化。与解析结果符合很好（精确到小数点后 3 位）。
+
+# Exercise 8
+
+# Exercise 9
+
+scaling 时的疏密度有差异（大 → 小是有利的，有利程度即是比值），如果交换，则会在 0 处集中
+
+# Exercise 10（Molecular Dynamics of a Lennard-Jones System, Chpt 4）
+
+# Exercise 11（Monte Carlo in $NPT$ Ensemble, Chpt 5）
+
+# Exercise 12（Ising Model, Chpt 5）
+
+# Exercise 13（Barrier Crossing, Chpt 6）
+
+# Exercise 14（Vapor-Liquid Equilibrium, Chpt 8）
+
+# Exercise 15（CBMC of a Single Chain, Chpt 13）
+
+# Exercise 16（CBMC of a Simple System, Chpt 13）
