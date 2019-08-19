@@ -1,3 +1,46 @@
+2019/8/19更新：也可以不通过更改到f90运行（对于case study，因为这部分基本不用补全代码，如果自己写程序的话是个参照），linux系统可以运行下面的命令（以ubantu为例）:
+
+```bash
+sudo apt-get install fort77
+sudo apt-get install csh
+```
+
+在source目录下输入
+
+```bash
+make clean
+make
+```
+
+之后，切换到run目录下，输入
+
+```bash
+chmod +x <filename>
+```
+
+之后输入
+
+```bash
+.\<filename>
+```
+
+就可以运行了。如果报错称没有权限，则将报错的文件也按照
+
+```bash
+chmod +x <filename>
+```
+
+增加运行权限（或者，更优先地，如果该目录有Makefile则执行下面的命令）
+
+```bash
+make clean
+make
+```
+
+之后再切到run下运行.\run就可以了。
+
+---
+
 这里存放了 *Understanding Molecular Simulation: From Algorithms to Applications* 这本书的全部 16 个程序设计练习。由于源文件是使用 Fixed Format 的 Fortran 77 格式，在这里先将其转为 Fortran 90 格式再进行相应模块编写。阅读说明：
 
 1. 设题号为 `<n>`，题目中如果有未完成的代码，则用 `<n>_0.f90` 命名，已完成的代码用 `<n>.f90` 命名，输出文件用 `<n>.dat` 命名。
