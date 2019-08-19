@@ -1,6 +1,6 @@
 ﻿# README
 
-本程序是一个（尚未完工的）实现最简单功能的分子动力学程序。
+本程序是一个实现了最简单功能（最简单的功能已经完工了）的分子动力学程序。
 
 ## Theory
 
@@ -83,13 +83,12 @@ int main(void) {
 
     // 平衡部分
     for(int i = 0; i < bstep * cpstep; i++) {
-        EIntegrate();   // 用Euler方法积分，Integrator可以换为
-                        // VIntegrate或者VVIntegrate，下同
+        Integrate();    // 使用待定的方法积分
     }
     
     for(int i = 0; i < nstep; i++) {
         for(int j = 0; j < cpstep; j++) {
-            EIntegrate();
+            Integrate();
         }
         sample();       // 采样，这里只输出动能、势能和总能量
     }
@@ -101,109 +100,11 @@ int main(void) {
 
 ### def.h和def.c
 
-该文件规定了一些全局变量，需要用到的标准库以及一些自定义宏。def.h如下：
-
-```c
-#ifndef DEF_H
-#define DEF_H
-
-// include essential libraries
-#include <stdio.h>
-#include <stdlib.h>
-#include <math.h>
-#include <time.h>
-#include <memory.h>
-
-// initialize a random generator
-#define RANDINIT srand((unsigned)time(NULL))
-
-// generate a random number in [0,1]
-#define RANDOM (double)rand()/(double)RAND_MAX
-
-// cutoff distance
-#define RCUT 2.5
-
-// dimension of the system 维度！维度！维度！
-#define DIM 1
-
-// length of the three-dimensional box
-extern double L;
-
-// number of particles
-extern int N;
-
-// initial temperature
-extern double temp;
-
-// timestep delta t
-extern double dt;
-
-// number of balance steps
-extern int bstep;
-
-// number of simulation steps
-extern int nstep;
-
-// number of simulation cycles per step
-extern int cpstep;
-
-// cutoff energy
-extern double ecut;
-
-// energy
-extern double ener;
-
-// old coordinates
-extern double* OCoo;
-
-// new coordinates
-extern double* NCoo;
-
-// old velocities
-extern double* OVel;
-
-// new velocitirs
-extern double* NVel;
-
-// forces
-extern double* NForce;
-
-// memory allocation
-void memAlloc();
-
-// destruction
-void memFree();
-
-#endif // DEF_H
-```
+该文件规定了一些全局变量，需要用到的标准库以及一些自定义宏。文件的部分已经被删除了，因为作者认为用户应该可以看注释，这个注释似乎还是满良心的。
 
 ### input
 
-定义了读取输入的函数readInput()，示例输入如下（一维零温单谐振子的测试）：
-
-```c
-1
-1
-0
-1e-2
-0
-2000
-1
-```
-
-对应着
-
-```
-模拟三维空间的边长，浮点数
-粒子个数，整数
-温度，浮点数
-时间步长，浮点数
-平衡步数，整数
-采样步数，整数
-每一步对应的循环个数，整数
-```
-
-- 实际进行的循环次数为$(平衡步数+采样步数)\times 循环个数$，每一个循环对应着一个时间步长$dt$。
+定义了读取输入的函数readInput()，示例输入如1.in，对应读入的参数意义请见input.c和def.h的注释。
 
 ### energy
 
@@ -211,13 +112,11 @@ void memFree();
 
 ### integrate
 
-- VIntegrate对应Verlet
-- VVIntegrate对应Velocity-Verlet
-- EIntegrate对应Euler
+实现了Leap Frog， Verlet，velocity Verlet和Euler方法。
 
 ### measure
 
-只是简单的打印输出。输出文件如下所示：
+只是简单的打印输出。输出文件前半部分已经说得很详细了，后半部分如下所示：
 
 ```c
  0.000013	 0.125000	 0.125013
@@ -261,9 +160,14 @@ void memFree();
 md.exe < 输入文件名 > 输出文件名
 ```
 
-- plot.py会输出两个图。第一个图为三种能量随着采样步长的变化，而第二个散点图为动能-势能图，都用于检查能量的漂移程度。
+- ~~plot.py会输出两个图。第一个图为三种能量随着采样步长的变化，而第二个散点图为动能-势能图，都用于检查能量的漂移程度。~~plot.py基于matplotlib，linenu为跳过的行数，steps为读取的行数。
 - 对于github上的版本，在根目录下运行$make可以生成可执行文件md。
 
 ## 联系方式
 
-uxie@pku.edu.cn
+Author: 蘑菇  
+Mailto: uxie@pku.edu.cn
+
+## 下一步
+
+根据自己的练习情况还会加东西，参考Understanding Molecular Simulation这本书。另外thermostat已经实现了，只是不在这个电脑上（悲）。另外如果可能的话可能会给一个输入种子的功能？

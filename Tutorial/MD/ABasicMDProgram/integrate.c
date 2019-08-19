@@ -1,7 +1,22 @@
 #include "integrate.h"
 #include "energy.h"
 
+void Integrate() {
+    switch(scheme) {
+        case 1:LFIntegrate();break;
+        case 2:VIntegrate();break;
+        case 3:VVIntegrate();break;
+        case 4:EIntegrate();break;
+        default:printf("NO INTEGRATOR SELECTED\n");exit(1000);
+    }
+    return;
+}
+
 void VIntegrate() {
+
+#ifdef INTSEL_DBG
+    printf("V\n");
+#endif
 
     // force calculation
     dForce(NForce);
@@ -15,12 +30,10 @@ void VIntegrate() {
         OVel[i] = NVel[i];
     }
 
-    // fix the position to ensure it is in the box
-    for(int i = 0; i < DIM*N; i++) {
-        double fix = floor(NCoo[i]/L)*L;
-        NCoo[i] -= fix;
-        OCoo[i] -= fix;
-    }
+    enkin = 0;
+    for(int i = 0; i < N*DIM; i++)
+        enkin += NVel[i] * NVel[i];
+    enkin /= 2;
 
     return;
 }
@@ -29,6 +42,10 @@ void VIntegrate() {
 void VVIntegrate() {
     
     // memory allocation and cleanup
+
+#ifdef INTSEL_DBG
+    printf("VV\n");
+#endif
 
     double* NNForce = malloc(DIM*N*sizeof(double));
     if(!NNForce)
@@ -60,10 +77,20 @@ void VVIntegrate() {
     free(NForce);
     NForce = NNForce;
 
+    enkin = 0;
+    for(int i = 0; i < N*DIM; i++)
+        enkin += NVel[i] * NVel[i];
+    enkin /= 2;
+
     return;
 }
 
 void EIntegrate() {
+
+#ifdef INTSEL_DBG
+    printf("E\n");
+#endif
+
     dForce(NForce);
     for(int i = 0; i < DIM*N; i++) {
         OVel[i] = NVel[i];
@@ -72,5 +99,28 @@ void EIntegrate() {
         NCoo[i] += NVel[i] * dt;
         NVel[i] += NForce[i] * dt;
     }
+    enkin = 0;
+    for(int i = 0; i < N*DIM; i++)
+        enkin += NVel[i] * NVel[i];
+    enkin /= 2;
+    return;
+}
+
+void LFIntegrate() {
+    
+#ifdef INTSEL_DBG
+    printf("LF\n");
+#endif
+
+    double v2 = 0;
+    dForce(NForce);
+    for(int i = 0; i < DIM*N; i++) {
+        OVel[i] = NVel[i];
+        NVel[i] += dt*NForce[i];
+        OCoo[i] = NCoo[i];
+        NCoo[i] += dt * NVel[i];
+        v2 += (NVel[i]+OVel[i])*(NVel[i]+OVel[i])/4;
+    }
+    enkin = v2 / 2;
     return;
 }

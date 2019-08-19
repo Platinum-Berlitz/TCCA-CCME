@@ -2,6 +2,7 @@
 
 // read input
 void readInput(void) {
+    scanf("%d", &scheme);
     scanf("%lf", &L);
     scanf("%d", &N);
     scanf("%lf", &temp);

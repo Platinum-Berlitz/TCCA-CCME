@@ -1,0 +1,1 @@
+gcc ../main.c ../def.c ../energy.c ../init.c ../input.c ../integrate.c ../measure.c -o md.exe -Wall

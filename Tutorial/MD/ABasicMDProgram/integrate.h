@@ -3,6 +3,9 @@
 
 #include "def.h"
 
+// integrator selector
+void Integrate();
+
 // integrate the equation using Verlet algorithm
 void VIntegrate();
 
@@ -17,5 +20,8 @@ void EIntegrate();
 
 // integrate the equation under Cayley transform
 // void CIntegrate();
+
+// integrate the equation using Leap Frog algorithm
+void LFIntegrate();
 
 #endif // INTEGRATE_H

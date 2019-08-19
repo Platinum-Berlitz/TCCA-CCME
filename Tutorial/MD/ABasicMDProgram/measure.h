@@ -3,7 +3,7 @@
 
 #include "def.h"
 
-// temperatore of the new velocity
+// temperature of the new velocity
 double dTemp();
 
 // sum of velocitie square in a particular dimension

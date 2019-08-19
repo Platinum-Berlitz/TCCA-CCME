@@ -21,11 +21,23 @@ int nstep;
 // number of simulation cycles per step
 int cpstep;
 
+// index of scheme, 1 for leapfrog, 2 for verlet, 3 for velocity verlet, 4 for euler
+int scheme;
+
+// random seed
+unsigned long mseed;
+
 // cutoff energy
 double ecut;
 
 // energy
 double ener;
+
+// kinetic energy
+double enkin;
+
+// Virial
+double vir;
 
 // old coordinates
 double* OCoo;
@@ -64,6 +76,11 @@ void memAlloc() {
     // initialization of global energy variable
     ener = 0;
 
+    // initialization of scheme
+    scheme %= 4;
+    if(scheme == 0)
+        scheme = 4;
+    
     return;
 }
 

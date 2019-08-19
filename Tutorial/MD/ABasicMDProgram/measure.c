@@ -15,8 +15,9 @@ double dVel2(int i) {
 }
 
 void sample() {
-    double T = dTemp();
-    printf("%9.6f\t%9.6f\t%9.6f\n", T*DIM/2, ener/N, ener/N + T*DIM/2);
+    //double T = dTemp();
+    //printf("%9.6f\t%9.6f\t%9.6f\n", T*DIM/2, ener/N, ener/N + T*DIM/2);
+    printf("%9.6f\t%9.6f\t%9.6f\n", enkin/N, ener/N, ener/N + enkin/N);
 #ifdef PRINT_ALL
     printf("OCoo\n");
     for(int i = 0; i < N; i++) {

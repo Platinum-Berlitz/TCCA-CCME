@@ -10,17 +10,22 @@ int main(void) {
     readInput();
 
     memAlloc();    
-    //RANDINIT;
+
+#ifndef FIXED_SEED
+    RANDINIT;
+#else
     BEASTSEED_INIT;
+#endif
+
     init();
 
     for(int i = 0; i < bstep * cpstep; i++) {
-        EIntegrate();
+        Integrate();
     }
     
     for(int i = 0; i < nstep; i++) {
         for(int j = 0; j < cpstep; j++) {
-            EIntegrate();
+            Integrate();
         }
 #ifdef PRINT_ALL
         printf("sample %d\n", i);
